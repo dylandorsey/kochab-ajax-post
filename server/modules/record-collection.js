@@ -6,9 +6,9 @@ const recordCollection = [
         cost: 300000
     },
     {
-        title: 'Long Cleve Reed & Little Harvey Hill',
+        title: 'Long Cleve Reed & Little Harvey Hull',
         year: 1927,
-        artist: 'Elvis',
+        artist: 'Down Home Boys',
         cost: 50000
     },
     {
