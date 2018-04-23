@@ -7,7 +7,7 @@ const app = express();
 const PORT = 5000;
 
 // this type of line (data) will live in the database soon
-const recordCollection = require('./modules/record-collection');
+const recordRouter = require('./routes/record.route');
 
 // set up the static page
 app.use(express.static('server/public'));
@@ -16,17 +16,10 @@ app.use(express.static('server/public'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 // routes (get, post, put, and delete requests)
-app.get('/records', (req, res) => {
-    res.send(recordCollection);
-});// end app.get('/records')
+// ^ these routes have been moved to record.route.js^ , and
+// they have been replaced by this
 
-app.post('/add-record', (req, res) => {
-    console.log(req.body); //req.body is the value from the data key on the client-side code
-    recordCollection.push(req.body);
-    res.sendStatus(200); // this code is sending a confirmation message as a response
-    // module.exports = data;
-    // res.send(recordCollection)
-});// end app.post
+app.use('/record', recordRouter);
 
 app.listen(PORT, () => {
     console.log(`...and we're live on port ${PORT}`);

@@ -11,7 +11,7 @@ function onReady() {
 function appendAllRecords() {
     $.ajax({
         method: 'GET',
-        url: '/records'
+        url: '/record'
     })
         .then(function (response) {
             for (let i = 0; i < response.length; i++) {
@@ -38,7 +38,7 @@ function addSong() {
     clearInputs();
     $.ajax({
         method: 'POST',
-        url: '/add-record',
+        url: '/record',
         data: newSong
     })
     .then(function (response) {
